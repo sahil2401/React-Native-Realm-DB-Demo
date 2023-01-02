@@ -55,18 +55,18 @@ export default function Home() {
 
     const renderItem = (item, index) => {
         return (
-            <>
-                <View style={{ alignItems: 'center' }}>
+            <View style={{ margin: 10 }}>
+                <View style={{ alignItems: 'center', marginBottom: 10 }}>
                     {item?.phoneNumber ?
-                        index === 0 && (<Text style={{ fontSize: 22 }}>Contacts</Text>) :
-                        index === 0 && (<Text style={{ fontSize: 22 }}>Bikes</Text>)}
+                        index === 0 && (<Text style={{ fontSize: 22, color: '#841584' }}>Contacts</Text>) :
+                        index === 0 && (<Text style={{ fontSize: 22, color: '#841584' }}>Bikes</Text>)}
                 </View>
                 <TouchableOpacity style={{ marginHorizontal: 32 }} onPress={() => deleteData(item, index)}>
-                    <Text>{item?.uid}</Text>
-                    <Text>{item?.Name}</Text>
-                    <Text>{item?.phoneNumber}</Text>
+                    <Text style={styles.ItemText}>{item?.uid}</Text>
+                    <Text style={styles.ItemText}>{item?.Name}</Text>
+                    <Text style={styles.ItemText}>{item?.phoneNumber}</Text>
                 </TouchableOpacity>
-            </>
+            </View>
         )
     }
 
@@ -99,7 +99,7 @@ export default function Home() {
                     value={Name}
                 />
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-around', marginTop: 20 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-around', marginTop: 20, marginBottom: 20 }}>
                 {/* <TextInput
                     style={styles.textInput}
                 /> */}
@@ -112,15 +112,16 @@ export default function Home() {
                     value={Number}
                 />
             </View>
+            <View style={{ alignItems: 'flex-end', width: '90%' }}>
+                <Button
+                    onPress={() => addHandler()}
+                    title="Add Data"
+                    color="#841584"
+                    accessibilityLabel="Learn more about this purple button"
+                />
+            </View>
 
-            <Button
-                onPress={() => addHandler()}
-                title="Add Data"
-                color="#841584"
-                accessibilityLabel="Learn more about this purple button"
-            />
-
-            <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-around' }}>
+            <View style={{ width: '100%', height: '100%', flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'lightgrey', marginTop: 20, borderTopLeftRadius: 40, borderTopRightRadius: 40 }}>
                 <FlatList
                     data={contacts}
                     renderItem={({ item, index }) => renderItem(item, index)}
@@ -147,5 +148,10 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 18,
         padding: 5
+    },
+    ItemText: {
+        color: '#000000',
+        fontSize: 16,
+        fontWeight: '500'
     }
 })
