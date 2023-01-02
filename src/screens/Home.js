@@ -72,7 +72,7 @@ export default function Home() {
 
     return (
         <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
-            <Text style={{}}>Realm DB</Text>
+            <Text style={{ fontSize: 28, fontWeight: 'bold' }}>Realm DB</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-around', marginTop: 20 }}>
                 {/* <TextInput
                     style={styles.textInput}
@@ -120,8 +120,10 @@ export default function Home() {
                     accessibilityLabel="Learn more about this purple button"
                 />
             </View>
-
-            <View style={{ width: '100%', height: '100%', flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'lightgrey', marginTop: 20, borderTopLeftRadius: 40, borderTopRightRadius: 40 }}>
+            <View style={{ marginTop: 20 }}>
+                <Text style={{ color: 'grey' }}>Press on Item to Delete from DB</Text>
+            </View>
+            <View style={{ width: '100%', height: '100%', flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'lightgrey', borderTopLeftRadius: 40, borderTopRightRadius: 40 }}>
                 <FlatList
                     data={contacts}
                     renderItem={({ item, index }) => renderItem(item, index)}
